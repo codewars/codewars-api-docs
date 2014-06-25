@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Codewars API Reference
 
 language_tabs:
   - shell
@@ -18,7 +18,7 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Codewars API! You can use our API to access Codewars API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
@@ -29,15 +29,15 @@ This example API documentation page was created with [Slate](http://github.com/t
 > To authorize, use this code:
 
 ```ruby
-require 'kittn'
+require 'Codewars'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Codewars::APIClient.authorize!('meowmeowmeow')
 ```
 
 ```python
-import 'kittn'
+import 'Codewars'
 
-api = Kittn.authorize('meowmeowmeow')
+api = Codewars.authorize('meowmeowmeow')
 ```
 
 ```shell
@@ -48,9 +48,9 @@ curl "api_endpoint_here"
 
 > Make sure to replace `meowmeowmeow` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Codewars uses API keys to allow access to the API. You can register a new Codewars API key at our [developer portal](http://example.com/developers).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Codewars expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
 `Authorization: meowmeowmeow`
 
@@ -63,16 +63,16 @@ You must replace `meowmeowmeow` with your personal API key.
 ## Get All Kittens
 
 ```ruby
-require 'kittn'
+require 'Codewars'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Codewars::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
 ```
 
 ```python
-import 'kittn'
+import 'Codewars'
 
-api = Kittn.authorize('meowmeowmeow')
+api = Codewars.authorize('meowmeowmeow')
 api.kittens.get()
 ```
 
@@ -122,16 +122,16 @@ Remember — a happy kitten is an authenticated kitten!
 ## Get a Specific Kitten
 
 ```ruby
-require 'kittn'
+require 'Codewars'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Codewars::APIClient.authorize!('meowmeowmeow')
 api.kittens.get(2)
 ```
 
 ```python
-import 'kittn'
+import 'Codewars'
 
-api = Kittn.authorize('meowmeowmeow')
+api = Codewars.authorize('meowmeowmeow')
 api.kittens.get(2)
 ```
 

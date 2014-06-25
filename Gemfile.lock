@@ -26,6 +26,7 @@ GEM
     execjs (2.0.2)
     ffi (1.9.3)
     fssm (0.2.10)
+    github-markdown (0.6.5)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -127,6 +128,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  github-markdown
   middleman (~> 3.3.0)
   middleman-gh-pages
   middleman-livereload (~> 3.3.0)

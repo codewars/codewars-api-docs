@@ -2,6 +2,8 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
+ruby '2.1.1'
+
 gem "middleman", "~>3.3.0"
 
 # For syntax highlighting
@@ -14,6 +16,7 @@ gem 'middleman-gh-pages'
 gem "middleman-livereload", "~> 3.3.0"
 
 gem 'redcarpet', '~> 3.1.1'
+gem 'github-markdown'
 
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
@@ -26,3 +29,5 @@ end
 gem "rake", "~> 10.3.0"
 
 gem 'therubyracer', :platforms => :ruby
+
+
