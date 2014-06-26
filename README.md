@@ -1,11 +1,6 @@
 Slate
 ========
-
-[![Build Status](https://travis-ci.org/tripit/slate.svg?branch=master)](https://travis-ci.org/tripit/slate) [![Dependency Status](https://gemnasium.com/tripit/slate.png)](https://gemnasium.com/tripit/slate)
-
 Slate helps you create beautiful single-page API documentation. Think of it as an intelligent, modern documentation template for your API.
-
-<img src="https://dl.dropboxusercontent.com/u/95847291/github%20images/slate/slate_screenshot.png" width=700 alt="Screenshot of Example Documentation created with Slate">
 
 *The example above was created with Slate. Check it out at [tripit.github.io/slate](http://tripit.github.io/slate).*
 
