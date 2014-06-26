@@ -45,10 +45,10 @@
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
+<pre><code class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: some-api-key"</span>
-</pre>
+</code></pre>
 
 <blockquote>
 <p>Make sure to replace <code class="prettyprint">some-api-key</code> with your API key.</p>
@@ -75,19 +75,19 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
 <blockquote>
 <p>Sample Event (Code Challenge Created)</p>
 </blockquote>
-<pre class="highlight plaintext">User-Agent: Codewars Hookbot
+<pre><code class="highlight plaintext">User-Agent: Codewars Hookbot
 Content-Type: application/json
 X-Webhook-Event: code_challenge
 X-Webhook-Secret: some-shared-secret
-</pre>
-<pre class="highlight json"><span class="p">{</span><span class="w">
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"code_challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50654ddff44f800200000001"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"508f2708b3be0c0200000002"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
 
 <p>When an event occurs in the Codewars system, any relevant webhooks will be triggered to the specified URL. Typically,
 events are categorized into <strong>event</strong> and <strong>actions</strong>. Typically an event references <em>what type of model</em> 
@@ -105,17 +105,17 @@ to query the rest of the API to get more information about a particular object.<
 <blockquote>
 <p>Webhook Ping Event</p>
 </blockquote>
-<pre class="highlight plaintext">User-Agent: Codewars Hookbot
+<pre><code class="highlight plaintext">User-Agent: Codewars Hookbot
 Content-Type: application/json
 X-Webhook-Event: webhook
-</pre>
-<pre class="highlight json"><span class="p">{</span><span class="w">
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"updated"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre>
+</span></code></pre>
 
 <p>Visit your <a href="https://www.codewars.com/users/edit">Codewars account page</a> and add a webhook. A webhook takes the
 following input:</p>
