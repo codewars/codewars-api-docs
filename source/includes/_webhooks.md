@@ -62,6 +62,93 @@ Input | Meaning
 ----- | -------
 Payload URL | The server endpoint that will relieve the webhook payload (i.e. `http://example.com/my/endpoint`)
 Secret | An optional secret shared between you and our webhook service. Ensures only Codewars is sending you the webhook
+Global | If checked, you will receive all events about the application (anyone completes a kata, etc). Otherwise, only receive events relevant to you (i.e. you create a kata)
 Events (future) | Whitelist which events you receive
 
 Once you create or update your webhook, your endpoint will receive a webhook updated event.
+
+## Code Challenges (Kata)
+
+> Sample Webhook Payload
+
+```
+User-Agent: Codewars Hookbot
+Content-Type: application/json
+X-Webhook-Event: code_challenge
+```
+
+```json
+{
+  "action": "<action - i.e. 'created'>",
+  "code_challenge": {
+    "id": "53aa3f265b97485984000001",
+    "created_by_id": "53af25145b97487568000001"
+  }
+}
+```
+> The solution_finalized also includes the following json:
+
+```json
+{
+  "solution": {
+    "id": "53aa3f265b97485984000001",
+    "user_id": "53417de006654f4171000587"
+  }
+}
+```
+
+
+
+We support the following actions:
+
+Action | Meaning
+------ | -------
+created | Code challenge was created
+approve_successful | A code challenge was successfully approved (no longer in beta state)
+voted | Someone voted on the code challenge. Does not specify what type of vote.
+solution_finalized | Someone submitted a solution to the code challenge
+
+
+## User
+
+
+> Webhook Headers
+
+```
+User-Agent: Codewars Hookbot
+Content-Type: application/json
+X-Webhook-Event: user
+```
+
+> User rank upgraded
+
+```json
+{
+  "action": "rank_earned",
+  "user": {
+    "id": "53aa3f265b97485984000001",
+    "rank": -5
+  },
+  "language": null
+}
+```
+
+> User Honor Upgraded
+
+```json
+{
+  "action": "honor_changed",
+  "user": {
+    "id": "53aa3f265b97485984000001",
+    "honor": 420
+  }
+}
+```
+
+
+We support the following actions:
+
+Action | Meaning
+------ | -------
+rank_upgraded | The user's rank has been upgraded. Could be a global rank, or a language rank
+honor_changed | The user's honor has changed (usually in a positive direction)
