@@ -5,7 +5,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <title>Codewars API Reference</title>
 
-    <link href="stylesheets/screen-41df1381.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/screen-38dd0e75.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print-414bbe9c.css" rel="stylesheet" type="text/css" media="print" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="javascripts/all-778c65f9.js" type="text/javascript"></script>
@@ -19,7 +19,7 @@
 
   <body class="index">
     <div class="tocify-wrapper">
-      <img src="images/logo-220ae435.png" />
+      <img style="width: 140px;margin: 40px; margin-bottom: 20px;" src="images/logo-220ae435.png" />
         <div class="search">
           <input type="text" class="search" id="input-search">
         </div>
@@ -33,11 +33,11 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <h1 id="api-reference">API Reference</h1>
 
-<p>Welcome to the Codewars API! You can use our API to access Codewars API endpoints, such as kata, etc.</p>
-
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>The Codewars API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use
+HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs.
+JSON will be returned in all responses from the API, including errors.</p>
 
           <h1 id="authentication">Authentication</h1>
 
@@ -53,14 +53,399 @@ curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
 <p>Make sure to replace <code class="prettyprint">some-api-key</code> with your API key.</p>
 </blockquote>
 
-<p>Codewars uses API keys to allow access to the API. You can register a new Codewars API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Codewars uses API access keys to allow access to restricted endpoints. Access keys are specific to a user account and can be found by navigating
+to your Account Settings (<code class="prettyprint">https://www.codewars.com/users/edit</code>).</p>
 
-<p>Codewars expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Codewars expects for the API access key to be included in most API requests.
+It can be included either via a header:</p>
 
-<p><code class="prettyprint">Authorization: f9b92bd1-12fa-420d-b743-e9f188a5ca68</code></p>
+<p><code class="prettyprint">Authorization: some-api-key</code></p>
+
+<p>or by passing it as a parameter:</p>
+
+<p><code class="prettyprint">?access_key=some-api-key</code></p>
 
 <p><aside class="notice">
-You must replace <code class="prettyprint">some-api-key</code> with your personal API key.
+You must replace <code class="prettyprint">some-api-key</code> with your personal API key found within your account settings.
+</aside></p>
+
+          <h1 id="rest-api">REST API</h1>
+
+<p>Our REST API can be used to retrieve information about users and code challenges (kata). It also provides the ability
+to begin a new code challenge session and submit solutions.</p>
+
+<h2 id="get-user">GET User</h2>
+<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/users/some_user"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Person"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"honor"</span><span class="p">:</span><span class="w"> </span><span class="mi">544</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some clan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"leaderboardPosition"</span><span class="p">:</span><span class="w"> </span><span class="mi">134</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"skills"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"c#"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">".net"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coffeescript"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nodejs"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rails"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ranks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"overall"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">2116</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"javascript"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"ruby"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1005</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"coffeescript"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">870</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"codeChallenges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"totalAuthored"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalCompleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">230</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns information about a specific user.</p>
+
+<h3 id="http-request">HTTP REQUEST</h3>
+
+<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:username</code></p>
+
+<h2 id="get-code-challenge">GET Code Challenge</h2>
+<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/valid-braces"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5277c8a221e209d3f6000b56"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valid Braces"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid-braces"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"algorithms"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"publishedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-05T00:07:31Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"approvedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-20T14:53:06Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coffeescript"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/kata/valid-braces"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xDranik"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/users/xDranik"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"approvedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xDranik"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Write a function called `validBraces` that takes a string of braces, and determines if the order of the braces is valid. `validBraces` should return true if the string is valid, and false if it's invalid.\n\nThis Kata is similar to the Valid Parentheses Kata, but introduces four new characters. Open and closed brackets, and open and closed curly braces. Thanks to @arnedag for the idea!\n\nAll input strings will be nonempty, and will only consist of open parentheses '(' , closed parentheses ')', open brackets '[', closed brackets ']', open curly braces '{' and closed curly braces '}'. \n\n&lt;b&gt;What is considered Valid?&lt;/b&gt;\nA string of braces is considered valid if all braces are matched with the correct brace. &lt;br/&gt;\nFor example:&lt;br/&gt;\n'(){}[]' and '([{}])' would be considered valid, while '(}', '[(])', and '[({})](]' would be considered invalid.\n\n\n&lt;b&gt;Examples:&lt;/b&gt; &lt;br/&gt;\n`validBraces( \"(){}[]\" )` =&gt; returns true &lt;br/&gt;\n`validBraces( \"(}\" )` =&gt; returns false &lt;br/&gt;\n`validBraces( \"[(])\" )` =&gt; returns false &lt;br/&gt;\n`validBraces( \"([{}])\" )` =&gt; returns true &lt;br/&gt;\n"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalAttempts"</span><span class="p">:</span><span class="w"> </span><span class="mi">4911</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalCompleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">919</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalStars"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Algorithms"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Validation"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Logic"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Utilities"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns information about a specific code challenge (kata).</p>
+
+<h3 id="http-request">HTTP REQUEST</h3>
+
+<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/:id_or_slug</code></p>
+
+<h2 id="post-train-next-code-challenge">POST Train Next Code Challenge</h2>
+<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/javascript/train"</span> <span class="se">\</span>
+ -X POST <span class="se">\</span>
+ -H <span class="s2">"Authorization: some-api-key"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Anything to integer"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"anything-to-integer"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Your task is to program a function which converts any input to an integer.\n\nDo not perform rounding, the fractional part should simply be discarded.\n\nIf converting the input to an integer does not make sense (with an object, for instance), the function should return 0 (zero).\n\nAlso, Math.floor(), parseInt() and parseFloat() are disabled for your unconvenience.\n\nOnegaishimasu!"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"author"</span><span class="p">:</span><span class="s2">"Jake Hoffner"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"rank"</span><span class="p">:</span><span class="mi">-6</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"averageCompletion"</span><span class="p">:</span><span class="mf">125.4</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"tags"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"Fundamentals"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Integers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Data Types"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Numbers"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"533f66fba0de5d94410001ec"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000004"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint begins a new training session for the next code challenge (kata) within your training queue.</p>
+
+<h3 id="http-request">HTTP REQUEST</h3>
+
+<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/:language/train</code></p>
+
+<table><thead>
+<tr>
+<th>Input</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>language</td>
+<td>The programming language you wish to train on.</td>
+</tr>
+<tr>
+<td>strategy</td>
+<td>The strategy to use for choosing what the next code challenge should be. (Optional)</td>
+</tr>
+</tbody></table>
+
+<p><aside class="warning">
+If the next code challenge within your queue is one that you have not started yet, then a timer will begin as soon as
+the request is made. The timer is used solely for tracking average completion times and does not affect your honor in
+any way.
+</aside></p>
+
+<h3 id="strategy-values">Strategy Values</h3>
+
+<p>Possible values for selecting a code challenge selection strategy.</p>
+
+<p><aside class="notice">
+All strategies will prefer incomplete and non-started code challenges, unless otherwise stated.
+</aside></p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>default</td>
+<td>Also referred to as the &ldquo;Rank Up&rdquo; workout. Will select a challenge that is above your current level.</td>
+</tr>
+<tr>
+<td>random</td>
+<td>Randomly selected code challenges</td>
+</tr>
+<tr>
+<td>reference_workout</td>
+<td>Will select code challenges that are tagged as reference.</td>
+</tr>
+<tr>
+<td>beta_workout</td>
+<td>Will select beta code challenges.</td>
+</tr>
+<tr>
+<td>retrain_workout</td>
+<td>Will focus on code challenges that you have already completed.</td>
+</tr>
+<tr>
+<td>algorithm_retest</td>
+<td>Will focus on algorithm code challenges that you have already completed.</td>
+</tr>
+<tr>
+<td>kyu_8_workout</td>
+<td>Will focus on 8 kyu code challenges.</td>
+</tr>
+<tr>
+<td>kyu_7_workout</td>
+<td>Will focus on 7 kyu code challenges.</td>
+</tr>
+<tr>
+<td>kyu_6_workout</td>
+<td>Will focus on 6 kyu code challenges.</td>
+</tr>
+<tr>
+<td>kyu_5_workout</td>
+<td>Will focus on 5 kyu code challenges.</td>
+</tr>
+<tr>
+<td>kyu_4_workout</td>
+<td>Will focus on 4 kyu code challenges.</td>
+</tr>
+<tr>
+<td>kyu_3_workout</td>
+<td>Will focus on 3 kyu code challenges.</td>
+</tr>
+<tr>
+<td>kyu_2_workout</td>
+<td>Will focus on 2 kyu code challenges.</td>
+</tr>
+<tr>
+<td>kyu_1_workout</td>
+<td>Will focus on 1 kyu code challenges.</td>
+</tr>
+</tbody></table>
+
+<h3 id="json-field-notes">JSON Field Notes</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description</td>
+<td>The code challenge description is given in markdown format.</td>
+</tr>
+<tr>
+<td>projectId</td>
+<td>This ID value will be needed when submitting a solution.</td>
+</tr>
+<tr>
+<td>solutionId</td>
+<td>This ID value will be needed when submitting a solution.</td>
+</tr>
+<tr>
+<td>setup</td>
+<td>This is the initial solution code that is given to a user.</td>
+</tr>
+<tr>
+<td>exampleFixture</td>
+<td>This is the example test cases that are initially given to a user.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>If the user is continuing a previous started solution, this value will represent their previous work.</td>
+</tr>
+</tbody></table>
+
+<h2 id="post-train-code-challenge">POST Train Code Challenge</h2>
+<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/anything-to-integer/javascript/train"</span> <span class="se">\</span>
+ -X POST <span class="se">\</span>
+ -H <span class="s2">"Authorization: some-api-key"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Anything to integer"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"anything-to-integer"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Your task is to program a function which converts any input to an integer.\n\nDo not perform rounding, the fractional part should simply be discarded.\n\nIf converting the input to an integer does not make sense (with an object, for instance), the function should return 0 (zero).\n\nAlso, Math.floor(), parseInt() and parseFloat() are disabled for your unconvenience.\n\nOnegaishimasu!"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"author"</span><span class="p">:</span><span class="s2">"Jake Hoffner"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"rank"</span><span class="p">:</span><span class="mi">-6</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"averageCompletion"</span><span class="p">:</span><span class="mf">125.4</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"tags"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"Fundamentals"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Integers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Data Types"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Numbers"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"523f66fba0de5d94410001cb"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000013"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint begins a new training session for the specified code challenge (kata)</p>
+
+<h3 id="http-request">HTTP REQUEST</h3>
+
+<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/:id_or_slug/:language/train</code></p>
+
+<table><thead>
+<tr>
+<th>Input</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>language</td>
+<td>The programming language you wish to train on.</td>
+</tr>
+</tbody></table>
+
+<p><aside class="warning">
+If the code challenge has not been started by yet by the user, then a timer will begin as soon as
+the request is made. The timer is used solely for tracking average completion times and does not affect the user&rsquo;s honor in
+any way.
+</aside></p>
+
+<h2 id="post-attempt-solution">POST Attempt Solution</h2>
+<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/projects/523f66fba0de5d94410001cb/solutions/53bc968d35fd2feefd000013/attempt"</span> <span class="se">\</span>
+ -X POST <span class="se">\</span>
+ -d <span class="nv">code</span><span class="o">=</span><span class="k">function</span><span class="o">(){</span>//example code<span class="se">\n</span><span class="o">}</span>
+ -H <span class="s2">"Authorization: some-api-key"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"dmid"</span><span class="p">:</span><span class="s2">"4rsdaDf8d"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to submit a solution to be validated by the code challenge author&rsquo;s test cases. It will return a
+deferred message id (dmid) which will be used to poll for the response. Polling must be used to retrieve the response.</p>
+
+<h3 id="http-request">HTTP REQUEST</h3>
+
+<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/projects/:project_id/solutions/:solution_id/attempt</code></p>
+
+<h2 id="post-finalize-solution">POST Finalize Solution</h2>
+<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/projects/523f66fba0de5d94410001cb/solutions/53bc968d35fd2feefd000013/finalize"</span> <span class="se">\</span>
+ -X POST <span class="se">\</span>
+ -H <span class="s2">"Authorization: some-api-key"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to finalize the previously submitted solution. This endpoint will only return a success message if
+there has been a previously successful solution.</p>
+
+<h2 id="get-deferred-response">GET Deferred Response</h2>
+<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/deferred/4rsdaDf8d"</span> <span class="se">\</span>
+ -H <span class="s2">"Authorization: some-api-key"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"dmid"</span><span class="p">:</span><span class="s2">"p_Musx_i"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"reason"</span><span class="p">:</span><span class="s2">"-e: Value is not what was expected (Test::Error)\n"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"output"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"&lt;div class='console-failed'&gt;Value is not what was expected&lt;/div&gt;"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"wall_time"</span><span class="p">:</span><span class="mi">45</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP REQUEST</h3>
+
+<p><code class="prettyprint">https://www.codewars.com/api/v1/deferred/:dmid</code></p>
+
+<p>This endpoint is used for polling for a deferred response. This is to be used in conjunction with the attempt endpoint.</p>
+
+<p><aside class="warning">
+Polling should not be performed more than twice a second. If a API consumer abuses the rate guidelines, its IP address
+will be temporarily suspended.
 </aside></p>
 
           <h1 id="webhooks">Webhooks</h1>
@@ -253,9 +638,40 @@ X-Webhook-Event: user
 </tr>
 </tbody></table>
 
+          <h1 id="languages">Languages</h1>
+
+<p>The Codewars API supports the following programming languages</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Name</th>
+<th>Version</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>coffeescript</td>
+<td>CoffeeScript</td>
+<td>v.1.7.1 running on Node v0.10.29</td>
+</tr>
+<tr>
+<td>javascript</td>
+<td>JavaScript</td>
+<td>Node v0.10.29 with Harmony extensions enabled</td>
+</tr>
+<tr>
+<td>ruby</td>
+<td>Ruby</td>
+<td>2.0.0</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
-<p>The Codewars API uses the following error codes:</p>
+<p>Codewars uses conventional HTTP response codes to indicate success or failure of an API request.
+In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from
+the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the
+5xx range indicate an error with Codewars&#39; servers.</p>
 
 <table><thead>
 <tr>
@@ -286,10 +702,6 @@ X-Webhook-Event: user
 <tr>
 <td>406</td>
 <td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested resource has been removed from our servers</td>
 </tr>
 <tr>
 <td>422</td>
