@@ -9,14 +9,18 @@ toc_footers:
 
 includes:
   - authentication
+  - api
   - webhooks
+  - languages
   - errors
 
 search: true
 ---
 
-# Introduction
+# API Reference
 
-Welcome to the Codewars API! You can use our API to access Codewars API endpoints, such as kata, etc.
+The Codewars API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use
+HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs.
+JSON will be returned in all responses from the API, including errors.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+

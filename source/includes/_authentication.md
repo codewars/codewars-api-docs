@@ -10,12 +10,18 @@ curl "api_endpoint_here" \
 
 > Make sure to replace `some-api-key` with your API key.
 
-Codewars uses API keys to allow access to the API. You can register a new Codewars API key at our [developer portal](http://example.com/developers).
+Codewars uses API access keys to allow access to restricted endpoints. Access keys are specific to a user account and can be found by navigating
+to your Account Settings (`https://www.codewars.com/users/edit`).
 
-Codewars expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Codewars expects for the API access key to be included in most API requests.
+It can be included either via a header:
 
-`Authorization: f9b92bd1-12fa-420d-b743-e9f188a5ca68`
+`Authorization: some-api-key`
+
+or by passing it as a parameter:
+
+`?access_key=some-api-key`
 
 <aside class="notice">
-You must replace `some-api-key` with your personal API key.
+You must replace `some-api-key` with your personal API key found within your account settings.
 </aside>
