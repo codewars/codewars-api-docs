@@ -63,7 +63,7 @@ curl "https://www.codewars.com/api/v1/users/some_user"
 This endpoint returns information about a specific user.
 
 ### HTTP REQUEST
-`https://www.codewars.com/api/v1/users/:username`
+`https://www.codewars.com/api/v1/users/:id_or_username`
 
 
 
