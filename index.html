@@ -180,7 +180,8 @@ to begin a new code challenge session and submit solutions.</p>
 <h2 id="post-train-next-code-challenge">POST Train Next Code Challenge</h2>
 <pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/javascript/train"</span> <span class="se">\</span>
  -X POST <span class="se">\</span>
- -H <span class="s2">"Authorization: some-api-key"</span>
+ -H <span class="s2">"Authorization: some-api-key"</span> <span class="se">\</span>
+ -d <span class="s2">"strategy=random"</span>
 </code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
    </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -196,11 +197,13 @@ to begin a new code challenge session and submit solutions.</p>
       </span><span class="s2">"Data Types"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Numbers"</span><span class="w">
    </span><span class="p">],</span><span class="w">
-   </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"533f66fba0de5d94410001ec"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000004"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+   </span><span class="s2">"session"</span><span class="p">:{</span><span class="w">
+       </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"533f66fba0de5d94410001ec"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000004"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -223,6 +226,10 @@ to begin a new code challenge session and submit solutions.</p>
 <tr>
 <td>strategy</td>
 <td>The strategy to use for choosing what the next code challenge should be. (Optional)</td>
+</tr>
+<tr>
+<td>peek</td>
+<td>Boolean - true if you only want to peek at the next item in your queue, without removing it from the queue or beginning a new training session.</td>
 </tr>
 </tbody></table>
 
@@ -357,11 +364,13 @@ All strategies will prefer incomplete and non-started code challenges, unless ot
       </span><span class="s2">"Data Types"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Numbers"</span><span class="w">
    </span><span class="p">],</span><span class="w">
-   </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"523f66fba0de5d94410001cb"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000013"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+   </span><span class="s2">"session"</span><span class="p">:{</span><span class="w">
+       </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"523f66fba0de5d94410001cb"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000013"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -407,6 +416,22 @@ deferred message id (dmid) which will be used to poll for the response. Polling 
 <h3 id="http-request">HTTP REQUEST</h3>
 
 <p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/projects/:project_id/solutions/:solution_id/attempt</code></p>
+
+<table><thead>
+<tr>
+<th>Input</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>The code that you is being submitted</td>
+</tr>
+<tr>
+<td>output_format</td>
+<td>The output format to be used. By default, <code class="prettyprint">html</code> is used. <code class="prettyprint">raw</code> can also be specified.</td>
+</tr>
+</tbody></table>
 
 <h2 id="post-finalize-solution">POST Finalize Solution</h2>
 <pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/projects/523f66fba0de5d94410001cb/solutions/53bc968d35fd2feefd000013/finalize"</span> <span class="se">\</span>
