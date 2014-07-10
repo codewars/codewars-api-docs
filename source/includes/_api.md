@@ -120,7 +120,8 @@ This endpoint returns information about a specific code challenge (kata).
 ```bash
 curl "https://www.codewars.com/api/v1/code-challenges/javascript/train" \
  -X POST \
- -H "Authorization: some-api-key"
+ -H "Authorization: some-api-key" \
+ -d "strategy=random"
 ```
 
 ```json
@@ -138,11 +139,13 @@ curl "https://www.codewars.com/api/v1/code-challenges/javascript/train" \
       "Data Types",
       "Numbers"
    ],
-   "projectId":"533f66fba0de5d94410001ec",
-   "solutionId":"53bc968d35fd2feefd000004",
-   "setup":"function toInteger(n) {\n  \n}",
-   "exampleFixture":"Test.expect(toInteger(\"4.55\") === 4)",
-   "code":null
+   "session":{
+       "projectId":"533f66fba0de5d94410001ec",
+       "solutionId":"53bc968d35fd2feefd000004",
+       "setup":"function toInteger(n) {\n  \n}",
+       "exampleFixture":"Test.expect(toInteger(\"4.55\") === 4)",
+       "code":null
+   }
 }
 ```
 
@@ -155,6 +158,7 @@ Input | Meaning
 ---------- | -------
 language | The programming language you wish to train on.
 strategy | The strategy to use for choosing what the next code challenge should be. (Optional)
+peek | Boolean - true if you only want to peek at the next item in your queue, without removing it from the queue or beginning a new training session.
 
 <aside class="warning">
 If the next code challenge within your queue is one that you have not started yet, then a timer will begin as soon as
@@ -223,11 +227,13 @@ curl "https://www.codewars.com/api/v1/code-challenges/anything-to-integer/javasc
       "Data Types",
       "Numbers"
    ],
-   "projectId":"523f66fba0de5d94410001cb",
-   "solutionId":"53bc968d35fd2feefd000013",
-   "setup":"function toInteger(n) {\n  \n}",
-   "exampleFixture":"Test.expect(toInteger(\"4.55\") === 4)",
-   "code":null
+   "session":{
+       "projectId":"523f66fba0de5d94410001cb",
+       "solutionId":"53bc968d35fd2feefd000013",
+       "setup":"function toInteger(n) {\n  \n}",
+       "exampleFixture":"Test.expect(toInteger(\"4.55\") === 4)",
+       "code":null
+   }
 }
 ```
 
@@ -267,6 +273,11 @@ deferred message id (dmid) which will be used to poll for the response. Polling 
 
 ### HTTP REQUEST
 `https://www.codewars.com/api/v1/code-challenges/projects/:project_id/solutions/:solution_id/attempt`
+
+Input | Meaning
+---------- | -------
+code | The code that you is being submitted
+output_format | The output format to be used. By default, `html` is used. `raw` can also be specified.
 
 ## POST Finalize Solution
 
