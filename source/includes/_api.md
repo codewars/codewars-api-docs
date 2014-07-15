@@ -66,6 +66,40 @@ This endpoint returns information about a specific user.
 `https://www.codewars.com/api/v1/users/:id_or_username`
 
 
+## GET completed code challenges for a given user
+
+```bash
+curl "http://www.codewars.com:3000/api/v1/users/some_user/code_challenges/completed"
+```
+
+```json
+{
+  "completedCodeChallenges": [{
+          "id":"514b92a657cdc65150000006",
+          "name":"Multiples of 3 and 5",
+          "slug":"multiples-of-3-and-5",
+          "completedLanguages":[ 
+            "javascript",
+            "coffeescript",
+            "ruby",
+            "javascript",
+            "ruby",
+            "javascript",
+            "ruby",
+            "coffeescript",
+            "javascript",
+            "ruby",
+            "coffeescript"
+          ]
+  }]
+}
+```
+
+This endpoint returns a list of all completed challenges for a given user.
+
+### HTTP REQUEST
+`https://www.codewars.com/api/v1/users/:id_or_username/code_challenges/completed`
+
 
 ## GET Code Challenge
 
