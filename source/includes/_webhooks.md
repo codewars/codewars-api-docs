@@ -124,7 +124,7 @@ X-Webhook-Event: user
 
 ```json
 {
-  "action": "rank_earned",
+  "action": "rank_upgraded",
   "user": {
     "id": "53aa3f265b97485984000001",
     "rank": -5
@@ -140,7 +140,8 @@ X-Webhook-Event: user
   "action": "honor_changed",
   "user": {
     "id": "53aa3f265b97485984000001",
-    "honor": 420
+    "honor": 420,
+    "honor_delta": 3
   }
 }
 ```
