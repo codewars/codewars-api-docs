@@ -131,7 +131,7 @@ to begin a new code challenge session and submit solutions.</p>
 
 <h3 id="http-request">HTTP REQUEST</h3>
 
-<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:username</code></p>
+<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username</code></p>
 
 <h2 id="get-code-challenge">GET Code Challenge</h2>
 <pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/valid-braces"</span>
@@ -624,7 +624,7 @@ X-Webhook-Event: user
 <p>User rank upgraded</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rank_earned"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rank_upgraded"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-5</span><span class="w">
@@ -640,7 +640,8 @@ X-Webhook-Event: user
   </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"honor_changed"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"honor"</span><span class="p">:</span><span class="w"> </span><span class="mi">420</span><span class="w">
+    </span><span class="s2">"honor"</span><span class="p">:</span><span class="w"> </span><span class="mi">420</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"honor_delta"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
