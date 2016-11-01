@@ -8,7 +8,7 @@
     <link href="stylesheets/screen-38dd0e75.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print-414bbe9c.css" rel="stylesheet" type="text/css" media="print" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="javascripts/all-778c65f9.js" type="text/javascript"></script>
+    <script src="javascripts/all-f748f77d.js" type="text/javascript"></script>
 
       <script>
         $(function() {
@@ -132,6 +132,303 @@ to begin a new code challenge session and submit solutions.</p>
 <h3 id="http-request">HTTP REQUEST</h3>
 
 <p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username</code></p>
+
+<h2 id="get-completed-code-challenges-for-a-given-user">GET completed code challenges for a given user</h2>
+<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com:3000/api/v1/users/some_user/code_challenges/completed"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"completedCodeChallenges"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"514b92a657cdc65150000006"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Multiples of 3 and 5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"multiples-of-3-and-5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"completedLanguages"</span><span class="p">:[</span><span class="w"> 
+            </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"coffeescript"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"coffeescript"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"coffeescript"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-attempted-code-challenges-for-a-given-user">GET attempted code challenges for a given user</h2>
+<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com:3000/api/v1/users/some_user/code_challenges/authored"</span>
+</code></pre>
+<pre><code class="highlight json"><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"authoredCodeChallenges"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"50654ddff44f800200000001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_slugs"</span><span class="p">:[</span><span class="s2">"broken-greetings"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"admin_tags"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"approvals_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"approved_at"</span><span class="p">:</span><span class="s2">"2013-12-03T15:32:28Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"approved_by_id"</span><span class="p">:</span><span class="s2">"5099936d1cafdc0200000097"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"average_completion"</span><span class="p">:</span><span class="mf">235.954799189812</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"beta_status"</span><span class="p">:</span><span class="s2">"feedback_needed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">"bug_fixes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"comments"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"5299f137caa22dd70f000323"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comment_reference_id"</span><span class="p">:</span><span class="s2">"5299f137caa22dd70f000324"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-11-30T14:07:51Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"edit_count"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"extra"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_edited_on"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"markdown"</span><span class="p">:</span><span class="s2">"Isn't `assertEquals()` the better choice than `expect()`  as  shown in the solution tab?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"masked"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"masked_by_id"</span><span class="p">:</span><span class="s2">"5299e17ad21189665f0002c3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"fresh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2014-01-06T19:07:14Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"5299e17ad21189665f0002c3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"votes"</span><span class="p">:[{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"5299f137b5570d9a97000322"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-11-30T14:07:51Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-11-30T14:07:51Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"5299e17ad21189665f0002c3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"votes_score"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+      </span><span class="p">},{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"52b22fbb139b6fed0c000039"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comment_reference_id"</span><span class="p">:</span><span class="s2">"52b22fbb139b6fed0c00003a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-18T23:28:59Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"edit_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"extra"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"beta"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"published"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_edited_on"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"markdown"</span><span class="p">:</span><span class="s2">"Simpler code, so I would prefer assertEquals. With expect you shoud use \"toEqual()\" for the same result. Despite that, I cannot think of a reason to choose one over the other."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"masked"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"masked_by_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"fresh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-12-18T23:28:59Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"52b22ad786b31630d000000d"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"votes"</span><span class="p">:[{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"52b22fbb139b6fed0c00003b"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-18T23:28:59Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-12-18T23:28:59Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"52b22ad786b31630d000000d"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"votes_score"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+      </span><span class="p">},{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"52b2666b139b6fdc6f0001ec"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"comment_reference_id"</span><span class="p">:</span><span class="s2">"52b2666b139b6fdc6f0001ed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"comments"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"52b266cb139b6fdc6f0001ef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comment_reference_id"</span><span class="p">:</span><span class="s2">"52b266cb139b6fdc6f0001f0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-19T03:23:55Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"edit_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"extra"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_edited_on"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"markdown"</span><span class="p">:</span><span class="s2">"BTW this is an old kata. And by old, i mean one of the first 5. Its actually using an older version of the kata framework, which is why Test.expect has a different signature here. "</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"masked"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"masked_by_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"fresh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-12-19T03:23:55Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"508f2708b3be0c0200000002"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"votes"</span><span class="p">:[{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"52b266cb139b6fdc6f0001f1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-19T03:23:55Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-12-19T03:23:55Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"508f2708b3be0c0200000002"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"votes_score"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-19T03:22:19Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"edit_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extra"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"beta"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"published"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_edited_on"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"markdown"</span><span class="p">:</span><span class="s2">"`assertEquals` also provides better validation messaging. `expect` just gives you a generic error. Best practices is always to use assertEquals unless you specifically intend to have a vague error message."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"masked"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"masked_by_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"fresh"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2014-03-30T11:31:31Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"508f2708b3be0c0200000002"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"votes"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"52b2666b139b6fdc6f0001ee"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-19T03:22:19Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-12-19T03:22:19Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"508f2708b3be0c0200000002"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
+      </span><span class="s2">"votes_score"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2012-09-28T07:12:31Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="s2">"508f2708b3be0c0200000002"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Correct this code, so that the greet function returns the expected value."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"estimated_rank"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"forks_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"input"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"languages"</span><span class="p">:[{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"50654ddff44f800200000002"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"answer"</span><span class="p">:</span><span class="s2">"function Person(name){\n  this.name = name;\n}\n\nPerson.prototype.greet = function(otherName){\n  return \"Hi \" + otherName + \", my name is \" + this.name;\n}\n"</span><span class="p">,</span><span class="s2">"code_challenge_review_id"</span><span class="p">:</span><span class="s2">"5197f8b7d2822fb530000088"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"example_fixture"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fixture"</span><span class="p">:</span><span class="s2">"person1 = new Person('Joe');\nperson2 = new Person('Jane');\nTest.expect(person1.greet('Kate'), \"Hi Kate, my name is Joe\")\nTest.expect(person2.greet('Kate'), \"Hi Kate, my name is Jane\")\n"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"package"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rank_applied_to_author"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function Person(name){\n  this.name = name;\n}\n\nPerson.prototype.greet = function(otherName){\n  return \"Hi \" + otherName + \", my name is \" + name;\n}\n"</span><span class="p">,</span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-11-11T16:43:14Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"50654ddff44f800200000003"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"answer"</span><span class="p">:</span><span class="s2">"Person = (name) -&gt;\n  @name = name\n\nPerson::greet = (otherName) -&gt;\n  \"Hi #{otherName}, my name is #{@name}\"\n"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code_challenge_review_id"</span><span class="p">:</span><span class="s2">"519d8086d6bb1bd1b7000006"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"example_fixture"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fixture"</span><span class="p">:</span><span class="s2">"person1 = new Person('Joe')\nperson2 = new Person('Jane')\nTest.expect(person1.greet('Kate'), \"Hi Kate, my name is Joe\")\nTest.expect(person2.greet('Kate'), \"Hi Kate, my name is Jane\")\n"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"coffeescript"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"package"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rank_applied_to_author"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"Person = (name) -&gt;\n  @name = name\n\nPerson::greet = (otherName) -&gt;\n  \"Hi #{otherName}, my name is #{name}\"\n"</span><span class="p">,</span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-11-11T16:43:14Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"5197ca54afd04bfb92000259"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"answer"</span><span class="p">:</span><span class="s2">"class Person\n  def initialize(name)\n    @name = name\n  end\n  \n  def greet(other_name)\n    \"Hi #{other_name}, my name is #{@name}\"\n  end\nend"</span><span class="p">,</span><span class="s2">"code_challenge_review_id"</span><span class="p">:</span><span class="s2">"5197e860d2822f96fc000055"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"example_fixture"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fixture"</span><span class="p">:</span><span class="s2">"person1 = Person.new('Joe')\nperson2 = Person.new('Jane')\nTest.expect(person1.greet('Kate'), \"Hi Kate, my name is Joe\")\nTest.expect(person2.greet('Kate'), \"Hi Kate, my name is Jane\")\n"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"package"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rank_applied_to_author"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"class Person\n  def initialize(name)\n    @name = name\n  end\n  \n  def greet(other_name)\n    \"Hi #{other_name}, my name is #{name}\"\n  end\nend"</span><span class="p">,</span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2013-11-11T16:43:14Z"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"last_published_at"</span><span class="p">:</span><span class="s2">"2013-12-03T15:42:33Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_revision_number"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Broken Greetings"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Hi Kate, my name is Joe\nHi Kate, my name is Jane\n"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"published_at"</span><span class="p">:</span><span class="s2">"2013-05-18T18:37:08Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"published_status"</span><span class="p">:</span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="mi">-8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank_applied_to_author"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank_applied_to_author_at"</span><span class="p">:</span><span class="s2">"2014-04-05T00:45:29Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rejections_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"retired_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"retired_by_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"revisions"</span><span class="p">:[{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"528109e36daa53cd5d000021"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"revised_attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Broken Greetings"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Why does the greet function not return the expected value?"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">"bug_fixes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"draft"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"revised_embeds"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"languages"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"50654ddff44f800200000002"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"package"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function Person(name){\n  this.name = name;\n}\n\nPerson.prototype.greet = function(otherName){\n  return \"Hi \" + otherName + \", my name is \" + name;\n}\n"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"answer"</span><span class="p">:</span><span class="s2">"function Person(name){\n  this.name = name;\n}\n\nPerson.prototype.greet = function(otherName){\n  return \"Hi \" + otherName + \", my name is \" + this.name;\n}\n"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fixture"</span><span class="p">:</span><span class="s2">"person1 = new Person('Joe');\nperson2 = new Person('Jane');\nTest.expect(person1.greet('Kate'), \"Hi Kate, my name is Joe\")\nTest.expect(person2.greet('Kate'), \"Hi Kate, my name is Jane\")\n"</span><span class="p">},</span><span class="w">
+            </span><span class="s2">"50654ddff44f800200000003"</span><span class="p">:{</span><span class="w">
+              </span><span class="s2">"package"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"Person = (name) -&gt;\n  @name = name\n\nPerson::greet = (otherName) -&gt;\n  \"Hi #{otherName}, my name is #{name}\"\n"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"answer"</span><span class="p">:</span><span class="s2">"Person = (name) -&gt;\n  @name = name\n\nPerson::greet = (otherName) -&gt;\n  \"Hi #{otherName}, my name is #{@name}\"\n"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"fixture"</span><span class="p">:</span><span class="s2">"person1 = new Person('Joe')\nperson2 = new Person('Jane')\nTest.expect(person1.greet('Kate'), \"Hi Kate, my name is Joe\")\nTest.expect(person2.greet('Kate'), \"Hi Kate, my name is Jane\")\n"</span><span class="p">},</span><span class="w">
+              </span><span class="s2">"5197ca54afd04bfb92000259"</span><span class="p">:{</span><span class="w">
+                </span><span class="s2">"package"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"class Person\n  def initialize(name)\n    @name = name\n  end\n  \n  def greet(other_name)\n    \"Hi #{other_name}, my name is #{name}\"\n  end\nend"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"answer"</span><span class="p">:</span><span class="s2">"class Person\n  def initialize(name)\n    @name = name\n  end\n  \n  def greet(other_name)\n    \"Hi #{other_name}, my name is #{@name}\"\n  end\nend"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"fixture"</span><span class="p">:</span><span class="s2">"person1 = Person.new('Joe')\nperson2 = Person.new('Jane')\nTest.expect(person1.greet('Kate'), \"Hi Kate, my name is Joe\")\nTest.expect(person2.greet('Kate'), \"Hi Kate, my name is Jane\")\n"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"tag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"508f2708b3be0c0200000002"</span><span class="w">
+        </span><span class="p">},{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"528109e36daa53cd5d000022"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"number"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"revised_attributes"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"published"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"revised_embeds"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"languages"</span><span class="p">:{}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"tag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"508f2708b3be0c0200000002"</span><span class="w">
+        </span><span class="p">},{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"529df98c2ea29ceee600088b"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-03T15:32:28Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"revised_attributes"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Correct this code so that the greet function will return the expected value:"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"revised_embeds"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"languages"</span><span class="p">:{}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"tag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"5099936d1cafdc0200000097"</span><span class="w">
+        </span><span class="p">},{</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="s2">"529dfbe92ea29cba780008ad"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2013-12-03T15:42:33Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"number"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"revised_attributes"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Correct this code so that the greet function returns the expected value."</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"revised_embeds"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"languages"</span><span class="p">:{}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"tag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"5099936d1cafdc0200000097"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"published"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"system_tags"</span><span class="p">:[</span><span class="s2">"Bugs"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:[],</span><span class="w">
+        </span><span class="s2">"total_attempts"</span><span class="p">:</span><span class="mi">150437</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_compete_attempts"</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_compete_completed"</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_compete_skipped"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_completed"</span><span class="p">:</span><span class="mi">50610</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_down_votes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_favorites"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_feedback"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_flag_votes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_players"</span><span class="p">:</span><span class="mi">101510</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_plays"</span><span class="p">:</span><span class="mi">133923</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_seconds"</span><span class="p">:</span><span class="mf">23951771.665757816</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_skips"</span><span class="p">:</span><span class="mi">48</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_stars"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_up_votes"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vote_score"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"training_schedule_ids"</span><span class="p">:[</span><span class="s2">"5196da6e9ec615ccfc00005f"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2014-07-11T22:20:37Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a list of all code challenges authored by a given user</p>
+
+<h3 id="http-request">HTTP REQUEST</h3>
+
+<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username/code_challenges/authored</code></p>
 
 <h2 id="get-code-challenge">GET Code Challenge</h2>
 <pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/valid-braces"</span>
@@ -397,70 +694,6 @@ If the code challenge has not been started by yet by the user, then a timer will
 the request is made. The timer is used solely for tracking average completion times and does not affect the user&rsquo;s honor in
 any way.
 </aside></p>
-
-<h2 id="post-attempt-solution">POST Attempt Solution</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/projects/523f66fba0de5d94410001cb/solutions/53bc968d35fd2feefd000013/attempt"</span> <span class="se">\</span>
- -X POST <span class="se">\</span>
- -d <span class="nv">code</span><span class="o">=</span><span class="k">function</span><span class="o">(){</span>//example code<span class="se">\n</span><span class="o">}</span>
- -H <span class="s2">"Authorization: some-api-key"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"dmid"</span><span class="p">:</span><span class="s2">"4rsdaDf8d"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint is used to submit a solution to be validated by the code challenge author&rsquo;s test cases. It will return a
-deferred message id (dmid) which will be used to poll for the response. Polling must be used to retrieve the response.</p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/projects/:project_id/solutions/:solution_id/attempt</code></p>
-
-<table><thead>
-<tr>
-<th>Input</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td>The code that you is being submitted</td>
-</tr>
-<tr>
-<td>output_format</td>
-<td>The output format to be used. By default, <code class="prettyprint">html</code> is used. <code class="prettyprint">raw</code> can also be specified.</td>
-</tr>
-</tbody></table>
-
-<h2 id="post-finalize-solution">POST Finalize Solution</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/projects/523f66fba0de5d94410001cb/solutions/53bc968d35fd2feefd000013/finalize"</span> <span class="se">\</span>
- -X POST <span class="se">\</span>
- -H <span class="s2">"Authorization: some-api-key"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint is used to finalize the previously submitted solution. This endpoint will only return a success message if
-there has been a previously successful solution.</p>
-
-<h2 id="get-deferred-response">GET Deferred Response</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/deferred/4rsdaDf8d"</span> <span class="se">\</span>
- -H <span class="s2">"Authorization: some-api-key"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"dmid"</span><span class="p">:</span><span class="s2">"4rsdaDf8d"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"reason"</span><span class="p">:</span><span class="s2">"-e: Value is not what was expected (Test::Error)\n"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"output"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"&lt;div class='console-failed'&gt;Value is not what was expected&lt;/div&gt;"</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="s2">"wall_time"</span><span class="p">:</span><span class="mi">45</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 
 <h3 id="http-request">HTTP REQUEST</h3>
 
