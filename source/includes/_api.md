@@ -96,7 +96,7 @@ curl "http://www.codewars.com:3000/api/v1/users/some_user/code_challenges/comple
 ```
 
 
-## GET attempted code challenges for a given user
+## GET authored code challenges for a given user
 
 ```bash
 curl "http://www.codewars.com:3000/api/v1/users/some_user/code_challenges/authored"
