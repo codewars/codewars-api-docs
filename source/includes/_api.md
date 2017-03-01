@@ -69,7 +69,7 @@ This endpoint returns information about a specific user.
 ## GET completed code challenges for a given user
 
 ```bash
-curl "http://www.codewars.com:3000/api/v1/users/some_user/code-challenges/completed"
+curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/completed"
 ```
 
 ```json
@@ -99,7 +99,7 @@ curl "http://www.codewars.com:3000/api/v1/users/some_user/code-challenges/comple
 ## GET attempted code challenges for a given user
 
 ```bash
-curl "http://www.codewars.com:3000/api/v1/users/some_user/code-challenges/authored"
+curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"
 ```
 
 ```json
