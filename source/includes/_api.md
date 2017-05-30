@@ -68,7 +68,7 @@ This endpoint returns information about a specific user.
 ## GET User: Completed Challenges
 
 ```bash
-curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=1"
+curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=0"
 ```
 
 ```json
@@ -97,8 +97,12 @@ curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?p
 }
 ```
 
+This endpoint returns a list of all code challenges completed by a given user. By default only the first 200 code challenges will be returned. You can page the results using the `page` param. The param is zero based.
 
-## GET User: Authored Code Challenges
+### HTTP REQUEST
+`https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/completed?page=0`
+
+## GET User: Authored Challenges
 
 ```bash
 curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"
@@ -107,7 +111,7 @@ curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"
 ```json
 
 {
-  "authoredCodeChallenges":{
+  "data":{
       "_id":"50654ddff44f800200000001",
       "_slugs":["broken-greetings"],
       "admin_tags":null,
