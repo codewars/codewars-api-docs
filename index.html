@@ -7,7 +7,7 @@
 
     <link href="stylesheets/screen-38dd0e75.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print-414bbe9c.css" rel="stylesheet" type="text/css" media="print" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="javascripts/all-f748f77d.js" type="text/javascript"></script>
 
       <script>
@@ -71,8 +71,7 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
 
           <h1 id="rest-api">REST API</h1>
 
-<p>Our REST API can be used to retrieve information about users and code challenges (kata). It also provides the ability
-to begin a new code challenge session and submit solutions.</p>
+<p>Our REST API can be used to retrieve information about users and code challenges (kata).</p>
 
 <h2 id="get-user">GET User</h2>
 <pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/users/some_user"</span>
@@ -134,7 +133,7 @@ to begin a new code challenge session and submit solutions.</p>
 <p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username</code></p>
 
 <h2 id="get-completed-code-challenges-for-a-given-user">GET completed code challenges for a given user</h2>
-<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com:3000/api/v1/users/some_user/code_challenges/completed"</span>
+<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/completed"</span>
 </code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"completedCodeChallenges"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -158,8 +157,8 @@ to begin a new code challenge session and submit solutions.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-attempted-code-challenges-for-a-given-user">GET attempted code challenges for a given user</h2>
-<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com:3000/api/v1/users/some_user/code_challenges/authored"</span>
+<h2 id="get-authored-code-challenges-for-a-given-user">GET authored code challenges for a given user</h2>
+<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"</span>
 </code></pre>
 <pre><code class="highlight json"><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -428,7 +427,7 @@ to begin a new code challenge session and submit solutions.</p>
 
 <h3 id="http-request">HTTP REQUEST</h3>
 
-<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username/code_challenges/authored</code></p>
+<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/authored</code></p>
 
 <h2 id="get-code-challenge">GET Code Challenge</h2>
 <pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/valid-braces"</span>
@@ -473,238 +472,6 @@ to begin a new code challenge session and submit solutions.</p>
 <h3 id="http-request">HTTP REQUEST</h3>
 
 <p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/:id_or_slug</code></p>
-
-<h2 id="post-train-next-code-challenge">POST Train Next Code Challenge</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/javascript/train"</span> <span class="se">\</span>
- -X POST <span class="se">\</span>
- -H <span class="s2">"Authorization: some-api-key"</span> <span class="se">\</span>
- -d <span class="s2">"strategy=random"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Anything to integer"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"anything-to-integer"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Your task is to program a function which converts any input to an integer.\n\nDo not perform rounding, the fractional part should simply be discarded.\n\nIf converting the input to an integer does not make sense (with an object, for instance), the function should return 0 (zero).\n\nAlso, Math.floor(), parseInt() and parseFloat() are disabled for your unconvenience.\n\nOnegaishimasu!"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"author"</span><span class="p">:</span><span class="s2">"Jake Hoffner"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"rank"</span><span class="p">:</span><span class="mi">-6</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"averageCompletion"</span><span class="p">:</span><span class="mf">125.4</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"tags"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"Fundamentals"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Integers"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Data Types"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Numbers"</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="s2">"session"</span><span class="p">:{</span><span class="w">
-       </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"533f66fba0de5d94410001ec"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000004"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint begins a new training session for the next code challenge (kata) within your training queue.</p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/:language/train</code></p>
-
-<table><thead>
-<tr>
-<th>Input</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>language</td>
-<td>The programming language you wish to train on.</td>
-</tr>
-<tr>
-<td>strategy</td>
-<td>The strategy to use for choosing what the next code challenge should be. (Optional)</td>
-</tr>
-<tr>
-<td>peek</td>
-<td>Boolean - true if you only want to peek at the next item in your queue, without removing it from the queue or beginning a new training session.</td>
-</tr>
-</tbody></table>
-
-<p><aside class="warning">
-If the next code challenge within your queue is one that you have not started yet, then a timer will begin as soon as
-the request is made. The timer is used solely for tracking average completion times and does not affect your honor in
-any way.
-</aside></p>
-
-<h3 id="strategy-values">Strategy Values</h3>
-
-<p>Possible values for selecting a code challenge selection strategy.</p>
-
-<p><aside class="notice">
-All strategies will prefer incomplete and non-started code challenges, unless otherwise stated.
-</aside></p>
-
-<table><thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>default</td>
-<td>Also referred to as the &ldquo;Rank Up&rdquo; workout. Will select a challenge that is above your current level.</td>
-</tr>
-<tr>
-<td>random</td>
-<td>Randomly selected code challenges</td>
-</tr>
-<tr>
-<td>reference_workout</td>
-<td>Will select code challenges that are tagged as reference.</td>
-</tr>
-<tr>
-<td>beta_workout</td>
-<td>Will select beta code challenges.</td>
-</tr>
-<tr>
-<td>retrain_workout</td>
-<td>Will focus on code challenges that you have already completed.</td>
-</tr>
-<tr>
-<td>algorithm_retest</td>
-<td>Will focus on algorithm code challenges that you have already completed.</td>
-</tr>
-<tr>
-<td>kyu_8_workout</td>
-<td>Will focus on 8 kyu code challenges.</td>
-</tr>
-<tr>
-<td>kyu_7_workout</td>
-<td>Will focus on 7 kyu code challenges.</td>
-</tr>
-<tr>
-<td>kyu_6_workout</td>
-<td>Will focus on 6 kyu code challenges.</td>
-</tr>
-<tr>
-<td>kyu_5_workout</td>
-<td>Will focus on 5 kyu code challenges.</td>
-</tr>
-<tr>
-<td>kyu_4_workout</td>
-<td>Will focus on 4 kyu code challenges.</td>
-</tr>
-<tr>
-<td>kyu_3_workout</td>
-<td>Will focus on 3 kyu code challenges.</td>
-</tr>
-<tr>
-<td>kyu_2_workout</td>
-<td>Will focus on 2 kyu code challenges.</td>
-</tr>
-<tr>
-<td>kyu_1_workout</td>
-<td>Will focus on 1 kyu code challenges.</td>
-</tr>
-</tbody></table>
-
-<h3 id="json-field-notes">JSON Field Notes</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Notes</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>description</td>
-<td>The code challenge description is given in markdown format.</td>
-</tr>
-<tr>
-<td>projectId</td>
-<td>This ID value will be needed when submitting a solution.</td>
-</tr>
-<tr>
-<td>solutionId</td>
-<td>This ID value will be needed when submitting a solution.</td>
-</tr>
-<tr>
-<td>setup</td>
-<td>This is the initial solution code that is given to a user.</td>
-</tr>
-<tr>
-<td>exampleFixture</td>
-<td>This is the example test cases that are initially given to a user.</td>
-</tr>
-<tr>
-<td>code</td>
-<td>If the user is continuing a previous started solution, this value will represent their previous work.</td>
-</tr>
-</tbody></table>
-
-<h2 id="post-train-code-challenge">POST Train Code Challenge</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/anything-to-integer/javascript/train"</span> <span class="se">\</span>
- -X POST <span class="se">\</span>
- -H <span class="s2">"Authorization: some-api-key"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Anything to integer"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"anything-to-integer"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Your task is to program a function which converts any input to an integer.\n\nDo not perform rounding, the fractional part should simply be discarded.\n\nIf converting the input to an integer does not make sense (with an object, for instance), the function should return 0 (zero).\n\nAlso, Math.floor(), parseInt() and parseFloat() are disabled for your unconvenience.\n\nOnegaishimasu!"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"author"</span><span class="p">:</span><span class="s2">"Jake Hoffner"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"rank"</span><span class="p">:</span><span class="mi">-6</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"averageCompletion"</span><span class="p">:</span><span class="mf">125.4</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"tags"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"Fundamentals"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Integers"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Data Types"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Numbers"</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="s2">"session"</span><span class="p">:{</span><span class="w">
-       </span><span class="s2">"projectId"</span><span class="p">:</span><span class="s2">"523f66fba0de5d94410001cb"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"solutionId"</span><span class="p">:</span><span class="s2">"53bc968d35fd2feefd000013"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"setup"</span><span class="p">:</span><span class="s2">"function toInteger(n) {\n  \n}"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"exampleFixture"</span><span class="p">:</span><span class="s2">"Test.expect(toInteger(\"4.55\") === 4)"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint begins a new training session for the specified code challenge (kata)</p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/:id_or_slug/:language/train</code></p>
-
-<table><thead>
-<tr>
-<th>Input</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>language</td>
-<td>The programming language you wish to train on.</td>
-</tr>
-</tbody></table>
-
-<p><aside class="warning">
-If the code challenge has not been started by yet by the user, then a timer will begin as soon as
-the request is made. The timer is used solely for tracking average completion times and does not affect the user&rsquo;s honor in
-any way.
-</aside></p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/deferred/:dmid</code></p>
-
-<p>This endpoint is used for polling for a deferred response. This is to be used in conjunction with the attempt endpoint.</p>
-
-<p><aside class="warning">
-Polling should not be performed more than twice a second. If a API consumer abuses the rate guidelines, its IP address
-will be temporarily suspended.
-</aside></p>
 
           <h1 id="webhooks">Webhooks</h1>
 
