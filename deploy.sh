@@ -32,6 +32,8 @@ file specified by the '--config-file' option."
 
 bundle exec middleman build --clean
 
+echo "dev.codewars.com" > build/CNAME
+
 parse_args() {
   # Set args from a local environment file.
   if [ -e ".env" ]; then
