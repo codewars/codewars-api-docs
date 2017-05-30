@@ -133,13 +133,16 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
 <p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username</code></p>
 
 <h2 id="get-completed-code-challenges-for-a-given-user">GET completed code challenges for a given user</h2>
-<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/completed"</span>
+<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=1"</span>
 </code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"completedCodeChallenges"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+  </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"514b92a657cdc65150000006"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Multiples of 3 and 5"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"multiples-of-3-and-5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"completedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-06T16:32:09Z"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"completedLanguages"</span><span class="p">:[</span><span class="w"> 
             </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"coffeescript"</span><span class="p">,</span><span class="w">
@@ -666,31 +669,7 @@ X-Webhook-Event: user
 
           <h1 id="languages">Languages</h1>
 
-<p>The Codewars API supports the following programming languages</p>
-
-<table><thead>
-<tr>
-<th>Value</th>
-<th>Name</th>
-<th>Version</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>coffeescript</td>
-<td>CoffeeScript</td>
-<td>v.1.7.1 running on Node v0.10.29</td>
-</tr>
-<tr>
-<td>javascript</td>
-<td>JavaScript</td>
-<td>Node v0.10.29 with Harmony extensions enabled</td>
-</tr>
-<tr>
-<td>ruby</td>
-<td>Ruby</td>
-<td>2.0.0</td>
-</tr>
-</tbody></table>
+<p>For a complete list of languages supported by the API, please view the README of the <a href="https://github.com/Codewars/codewars-runner-cli/blob/master/README.md">CLI project</a>.</p>
 
           <h1 id="errors">Errors</h1>
 
