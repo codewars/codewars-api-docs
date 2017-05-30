@@ -133,7 +133,7 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
 <p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username</code></p>
 
 <h2 id="get-user:-completed-challenges">GET User: Completed Challenges</h2>
-<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=1"</span>
+<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=0"</span>
 </code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -160,11 +160,11 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns a list of all code challenges completed by a given user. By default only the first 200 code challenges will be returned. You can page the results using the <code class="prettyprint">page</code> param.</p>
+<p>This endpoint returns a list of all code challenges completed by a given user. By default only the first 200 code challenges will be returned. You can page the results using the <code class="prettyprint">page</code> param. The param is zero based.</p>
 
 <h3 id="http-request">HTTP REQUEST</h3>
 
-<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/completed</code></p>
+<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/completed?page=0</code></p>
 
 <h2 id="get-user:-authored-challenges">GET User: Authored Challenges</h2>
 <pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"</span>
