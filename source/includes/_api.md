@@ -65,18 +65,21 @@ This endpoint returns information about a specific user.
 `https://www.codewars.com/api/v1/users/:id_or_username`
 
 
-## GET completed code challenges for a given user
+## GET User: Completed Challenges
 
 ```bash
-curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/completed"
+curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=1"
 ```
 
 ```json
 {
-  "completedCodeChallenges": [{
+  "totalPages": 1,
+  "totalItems": 1, 
+  "data": [{
           "id":"514b92a657cdc65150000006",
           "name":"Multiples of 3 and 5",
           "slug":"multiples-of-3-and-5",
+          "completedAt": "2017-04-06T16:32:09Z",
           "completedLanguages":[ 
             "javascript",
             "coffeescript",
@@ -95,7 +98,7 @@ curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/completed"
 ```
 
 
-## GET authored code challenges for a given user
+## GET User: Authored Code Challenges
 
 ```bash
 curl "http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"
