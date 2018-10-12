@@ -62,7 +62,6 @@ Input | Meaning
 ----- | -------
 Payload URL | The server endpoint that will relieve the webhook payload (i.e. `http://example.com/my/endpoint`)
 Secret | An optional secret shared between you and our webhook service. Ensures only Codewars is sending you the webhook
-Global | If checked, you will receive all events about the application (anyone completes a kata, etc). Otherwise, only receive events relevant to you (i.e. you create a kata)
 Events (future) | Whitelist which events you receive
 
 Once you create or update your webhook, your endpoint will receive a webhook updated event.
