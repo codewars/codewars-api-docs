@@ -1,3 +1,20 @@
+language: ruby
 rvm:
-  - 1.9.3
-  - 2.0.0
+- 2.3.0
+env:
+  global:
+    secure: dRQXqaYyMTD07tJ19Qpj7emVze+o+57fzYzXf8fG42JP/slv3PGko5CJSLyHc/33w/GuhZr3J+Y/89O+S0TNU3gEmAzQVsfxaxigkLQL4XV1cw6v5MGEJsO57dXJ4ar8QkJQNUgBCwMNwY0Kv5uhsCCbwcYU/n7OeLrbNgfz9Ec=
+script:
+  - bundle exec middleman build --clean
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  target-branch: gh-pages
+  local-dir: build
+  repo: Codewars/codewars-api-docs
+  on:
+    branch: master
+  fqdn: dev.codewars.com
+
