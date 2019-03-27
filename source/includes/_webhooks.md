@@ -1,5 +1,5 @@
 # Webhooks
-Webhooks allows you to relieve notifications of when events occur. 
+Webhooks allows you to receive notifications when events occur. 
 
 The Codewars webhooks design is inspired by [GitHub's webhooks](https://developer.github.com/webhooks/)
 
