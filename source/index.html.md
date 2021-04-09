@@ -2,16 +2,16 @@
 title: Codewars API Reference
 
 language_tabs:
-  - shell: curl
+  - shell
 
 toc_footers:
-  - <a href='https://www.codewars.com/'>Back to Codewars</a>
+  - <a href='https://www.codewars.com/'>codewars.com</a>
+  - <a href='https://github.com/codewars'>github.com/codewars</a>
 
 includes:
-  - authentication
-  - api
+  - users
+  - code_challenges
   - webhooks
-  - languages
   - errors
 
 search: true
@@ -19,8 +19,14 @@ search: true
 
 # Introduction
 
-The Codewars API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use
-HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs.
-JSON will be returned in all responses from the API, including errors.
+Codewars API v1 is minimal and inconsistent. It was never actively developed.
 
+API v2 is planned, but there's no ETA at the moment.
 
+## Authentication
+
+Not required. API v1 endpoints are all public.
+
+## Content-Type
+
+API v1 endpoints responds with JSON (`application/json`).

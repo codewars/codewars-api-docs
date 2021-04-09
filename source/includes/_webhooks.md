@@ -1,9 +1,12 @@
 # Webhooks
-Webhooks allows you to receive notifications when events occur. 
 
-The Codewars webhooks design is inspired by [GitHub's webhooks](https://developer.github.com/webhooks/)
+Webhooks allows you to receive notifications when events occur.
+
+Like API v1, webhooks feature was never actively developed and poorly documented.
+It's not very usable at the moment.
 
 ## Structure
+
 > Sample Event (Code Challenge Created)
 
 ```
@@ -30,7 +33,7 @@ events are categorized into **event** and **actions**. Typically an event refere
 
 
 <aside class="notice">
-Webhooks use the same terminology as the rest of the API. For example, *kata* are referenced as a *code_challenge*
+Webhooks use the same terminology as the rest of the API. For example, <em>kata</em> are referenced as a <em>code challenge</em>.
 </aside>
 
 Webhooks typically contain a very small payload (often times, it only contains the `id` of some object). You may need
@@ -58,15 +61,14 @@ X-Webhook-Event: webhook
 Visit your [Codewars account page](https://www.codewars.com/users/edit) and add a webhook. A webhook takes the
 following input:
 
-Input | Meaning
------ | -------
-Payload URL | The server endpoint that will relieve the webhook payload (i.e. `http://example.com/my/endpoint`)
-Secret | An optional secret shared between you and our webhook service. Ensures only Codewars is sending you the webhook
-Events (future) | Whitelist which events you receive
+| Input | Meaning |
+| ----- | ------- |
+| Payload URL | The server endpoint that will relieve the webhook payload (e.g, `https://example.com/my/endpoint`) |
+| Secret | An optional secret shared between you and our webhook service. Ensures only Codewars is sending you the webhook |
 
 Once you create or update your webhook, your endpoint will receive a webhook updated event.
 
-## Code Challenges (Kata)
+## Code Challenges
 
 > Sample Webhook Payload
 
@@ -96,16 +98,14 @@ X-Webhook-Event: code_challenge
 }
 ```
 
+The following actions are supported:
 
-
-We support the following actions:
-
-Action | Meaning
------- | -------
-created | Code challenge was created
-approve_successful | A code challenge was successfully approved (no longer in beta state)
-voted | Someone voted on the code challenge. Does not specify what type of vote.
-solution_finalized | Someone submitted a solution to the code challenge
+| Action               | Meaning |
+| -------------------- | ------- |
+| `created`            | Code challenge was created |
+| `approved`           | A code challenge was successfully approved (no longer in beta state) |
+| `voted`              | Someone voted on the code challenge. Does not specify what type of vote. |
+| `solution_finalized` | Someone submitted a solution to the code challenge |
 
 
 ## User
@@ -119,11 +119,11 @@ Content-Type: application/json
 X-Webhook-Event: user
 ```
 
-> User rank upgraded
+> `rank_earned` Event
 
 ```json
 {
-  "action": "rank_upgraded",
+  "action": "rank_earned",
   "user": {
     "id": "53aa3f265b97485984000001",
     "rank": -5
@@ -132,7 +132,7 @@ X-Webhook-Event: user
 }
 ```
 
-> User Honor Upgraded
+> `honor_changed` Event
 
 ```json
 {
@@ -145,10 +145,9 @@ X-Webhook-Event: user
 }
 ```
 
+The following actions are supported:
 
-We support the following actions:
-
-Action | Meaning
------- | -------
-rank_upgraded | The user's rank has been upgraded. Could be a global rank, or a language rank
-honor_changed | The user's honor has changed (usually in a positive direction)
+| Action          | Meaning |
+| --------------- | ------- |
+| `rank_earned`   | The user's rank has been upgraded. Could be a global rank, or a language rank |
+| `honor_changed` | The user's honor has changed (usually in a positive direction) |
