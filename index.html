@@ -1,88 +1,406 @@
+
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Codewars API Reference</title>
+    <link href="images/favicon-684c0fda.ico" rel="icon" type="image/ico" />
 
-    <link href="stylesheets/screen-38dd0e75.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/print-414bbe9c.css" rel="stylesheet" type="text/css" media="print" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="javascripts/all-d877234a.js" type="text/javascript"></script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a9fde460.js"></script>
 
-      <script>
-        $(function() {
-          setupLanguages(["shell"]);
-        });
-      </script>
   </head>
 
-  <body class="index">
-    <div class="tocify-wrapper">
-      <img style="width: 140px;margin: 40px; margin-bottom: 20px;" src="images/logo-220ae435.png" />
-        <div class="search">
-          <input type="text" class="search" id="input-search">
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-220ae435.png" class="logo" style="margin: 20px auto;" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">curl</a>
         </div>
-        <div class="search-info"></div>
-      <div id="toc">
-      </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#rest-api" class="toc-h1 toc-link" data-title="REST API">REST API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-user" class="toc-h2 toc-link" data-title="GET User">GET User</a>
+                  </li>
+                  <li>
+                    <a href="#get-user-completed-challenges" class="toc-h2 toc-link" data-title="GET User: Completed Challenges">GET User: Completed Challenges</a>
+                  </li>
+                  <li>
+                    <a href="#get-user-authored-challenges" class="toc-h2 toc-link" data-title="GET User: Authored Challenges">GET User: Authored Challenges</a>
+                  </li>
+                  <li>
+                    <a href="#get-code-challenge" class="toc-h2 toc-link" data-title="GET Code Challenge">GET Code Challenge</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#structure" class="toc-h2 toc-link" data-title="Structure">Structure</a>
+                  </li>
+                  <li>
+                    <a href="#register-your-webhook" class="toc-h2 toc-link" data-title="Register your Webhook">Register your Webhook</a>
+                  </li>
+                  <li>
+                    <a href="#code-challenges-kata" class="toc-h2 toc-link" data-title="Code Challenges (Kata)">Code Challenges (Kata)</a>
+                  </li>
+                  <li>
+                    <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#languages" class="toc-h1 toc-link" data-title="Languages">Languages</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
         <ul class="toc-footer">
-            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://www.codewars.com/'>Back to Codewars</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="api-reference">API Reference</h1>
-
+        <h1 id='introduction'>Introduction</h1>
 <p>The Codewars API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use
 HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs.
 JSON will be returned in all responses from the API, including errors.</p>
-
-          <h1 id="authentication">Authentication</h1>
-
+<h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre><code class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: some-api-key"</span>
-</code></pre>
-
+  <span class="nt">-H</span> <span class="s2">"Authorization: some-api-key"</span>
+</code></pre></div>
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">some-api-key</code> with your API key.</p>
+<p>Make sure to replace <code>some-api-key</code> with your API key.</p>
 </blockquote>
 
 <p>Codewars uses API access keys to allow access to restricted endpoints. Access keys are specific to a user account and can be found by navigating
-to your Account Settings (<code class="prettyprint">https://www.codewars.com/users/edit</code>).</p>
+to your Account Settings (<code>https://www.codewars.com/users/edit</code>).</p>
 
 <p>Codewars expects for the API access key to be included in most API requests.
 It can be included either via a header:</p>
 
-<p><code class="prettyprint">Authorization: some-api-key</code></p>
+<p><code>Authorization: some-api-key</code></p>
 
 <p>or by passing it as a parameter:</p>
 
-<p><code class="prettyprint">?access_key=some-api-key</code></p>
+<p><code>?access_key=some-api-key</code></p>
 
-<p><aside class="notice">
-You must replace <code class="prettyprint">some-api-key</code> with your personal API key found within your account settings.
-</aside></p>
-
-          <h1 id="rest-api">REST API</h1>
-
+<aside class="notice">
+You must replace `some-api-key` with your personal API key found within your account settings.
+</aside>
+<h1 id='rest-api'>REST API</h1>
 <p>Our REST API can be used to retrieve information about users and code challenges (kata).</p>
-
-<h2 id="get-user">GET User</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/users/some_user"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_user"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Person"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"honor"</span><span class="p">:</span><span class="w"> </span><span class="mi">544</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"clan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some clan"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"leaderboardPosition"</span><span class="p">:</span><span class="w"> </span><span class="mi">134</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"skills"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<h2 id='get-user'>GET User</h2><div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://www.codewars.com/api/v1/users/some_user"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_user"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Person"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"honor"</span><span class="p">:</span><span class="w"> </span><span class="mi">544</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"clan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some clan"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"leaderboardPosition"</span><span class="p">:</span><span class="w"> </span><span class="mi">134</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"skills"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"c#"</span><span class="p">,</span><span class="w">
         </span><span class="s2">".net"</span><span class="p">,</span><span class="w">
@@ -91,59 +409,53 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
         </span><span class="s2">"nodejs"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"rails"</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ranks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"overall"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">2116</span><span class="w">
+    </span><span class="nl">"ranks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"overall"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">2116</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"javascript"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819</span><span class="w">
+        </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"javascript"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"ruby"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1005</span><span class="w">
+            </span><span class="nl">"ruby"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1005</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"coffeescript"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">870</span><span class="w">
+            </span><span class="nl">"coffeescript"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">870</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"codeChallenges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"totalAuthored"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"totalCompleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">230</span><span class="w">
+    </span><span class="nl">"codeChallenges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"totalAuthored"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalCompleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">230</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>This endpoint returns information about a specific user.</p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username</code></p>
-
-<h2 id="get-user:-completed-challenges">GET User: Completed Challenges</h2>
-<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=0"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"514b92a657cdc65150000006"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Multiples of 3 and 5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"multiples-of-3-and-5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"completedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-06T16:32:09Z"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"completedLanguages"</span><span class="p">:[</span><span class="w"> 
+<h3 id='http-request'>HTTP REQUEST</h3>
+<p><code>https://www.codewars.com/api/v1/users/:id_or_username</code></p>
+<h2 id='get-user-completed-challenges'>GET User: Completed Challenges</h2><div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/completed?page=0"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"514b92a657cdc65150000006"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Multiples of 3 and 5"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"slug"</span><span class="p">:</span><span class="s2">"multiples-of-3-and-5"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"completedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-06T16:32:09Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"completedLanguages"</span><span class="p">:[</span><span class="w"> 
             </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"coffeescript"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
@@ -158,26 +470,20 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
           </span><span class="p">]</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint returns a list of all code challenges completed by a given user. By default only the first 200 code challenges will be returned. You can page the results using the <code class="prettyprint">page</code> param. The param is zero based.</p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/completed?page=0</code></p>
-
-<h2 id="get-user:-authored-challenges">GET User: Authored Challenges</h2>
-<pre><code class="highlight shell">curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint returns a list of all code challenges completed by a given user. By default only the first 200 code challenges will be returned. You can page the results using the <code>page</code> param. The param is zero based.</p>
+<h3 id='http-request-2'>HTTP REQUEST</h3>
+<p><code>https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/completed?page=0</code></p>
+<h2 id='get-user-authored-challenges'>GET User: Authored Challenges</h2><div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"http://www.codewars.com/api/v1/users/some_user/code-challenges/authored"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5571d9fc11526780a000011a"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The builder of things"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For this kata you will be using some meta-programming magic to create a new `Thing` object. This object will allow you to define things in a descriptive **sentence like format**."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"rankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5571d9fc11526780a000011a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The builder of things"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For this kata you will be using some meta-programming magic to create a new `Thing` object. This object will allow you to define things in a descriptive **sentence like format**."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 kyu"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"Algorithms"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Metaprogramming"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Programming Paradigms"</span><span class="p">,</span><span class="w">
@@ -186,7 +492,7 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
         </span><span class="s2">"Domain Specific Languages"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Declarative Programming"</span><span class="w">
       </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"python"</span><span class="p">,</span><span class="w">
@@ -194,19 +500,19 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51ba717bb08c1cd60f00002f"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Range Extraction"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A format for expressing an ordered list of integers is to use a comma separated list of either\n\n* individual integers\n* or a range of integers denoted by the starting integer separated from the end integer in the range by a dash, '-'. The range includes all integers in the interval including both endpoints.  It is not considered a range unless it spans at least 3 numbers."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"rankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51ba717bb08c1cd60f00002f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Range Extraction"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A format for expressing an ordered list of integers is to use a comma separated list of either</span><span class="se">\n\n</span><span class="s2">* individual integers</span><span class="se">\n</span><span class="s2">* or a range of integers denoted by the starting integer separated from the end integer in the range by a dash, '-'. The range includes all integers in the interval including both endpoints.  It is not considered a range unless it spans at least 3 numbers."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"Algorithms"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"String Formatting"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Formatting"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Logic"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Strings"</span><span class="w">
       </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"coffeescript"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ruby"</span><span class="p">,</span><span class="w">
@@ -220,114 +526,95 @@ You must replace <code class="prettyprint">some-api-key</code> with your persona
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>This endpoint returns a list of all code challenges authored by a given user</p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/authored</code></p>
-
-<h2 id="get-code-challenge">GET Code Challenge</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/valid-braces"</span>
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5277c8a221e209d3f6000b56"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valid Braces"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid-braces"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"algorithms"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"publishedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-05T00:07:31Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"approvedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-20T14:53:06Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<h3 id='http-request-3'>HTTP REQUEST</h3>
+<p><code>https://www.codewars.com/api/v1/users/:id_or_username/code-challenges/authored</code></p>
+<h2 id='get-code-challenge'>GET Code Challenge</h2><div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://www.codewars.com/api/v1/code-challenges/valid-braces"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5277c8a221e209d3f6000b56"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valid Braces"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid-braces"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"algorithms"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"publishedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-05T00:07:31Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"approvedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-20T14:53:06Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"javascript"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"coffeescript"</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/kata/valid-braces"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/kata/valid-braces"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 kyu"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xDranik"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/users/xDranik"</span><span class="w">
+    </span><span class="nl">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xDranik"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/users/xDranik"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"approvedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xDranik"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/users/xDranik"</span><span class="w">
+    </span><span class="nl">"approvedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xDranik"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.codewars.com/users/xDranik"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Write a function called `validBraces` that takes a string of braces, and determines if the order of the braces is valid. `validBraces` should return true if the string is valid, and false if it's invalid.\n\nThis Kata is similar to the Valid Parentheses Kata, but introduces four new characters. Open and closed brackets, and open and closed curly braces. Thanks to @arnedag for the idea!\n\nAll input strings will be nonempty, and will only consist of open parentheses '(' , closed parentheses ')', open brackets '[', closed brackets ']', open curly braces '{' and closed curly braces '}'. \n\n&lt;b&gt;What is considered Valid?&lt;/b&gt;\nA string of braces is considered valid if all braces are matched with the correct brace. &lt;br/&gt;\nFor example:&lt;br/&gt;\n'(){}[]' and '([{}])' would be considered valid, while '(}', '[(])', and '[({})](]' would be considered invalid.\n\n\n&lt;b&gt;Examples:&lt;/b&gt; &lt;br/&gt;\n`validBraces( \"(){}[]\" )` =&gt; returns true &lt;br/&gt;\n`validBraces( \"(}\" )` =&gt; returns false &lt;br/&gt;\n`validBraces( \"[(])\" )` =&gt; returns false &lt;br/&gt;\n`validBraces( \"([{}])\" )` =&gt; returns true &lt;br/&gt;\n"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"totalAttempts"</span><span class="p">:</span><span class="w"> </span><span class="mi">4911</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"totalCompleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">919</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"totalStars"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Write a function called `validBraces` that takes a string of braces, and determines if the order of the braces is valid. `validBraces` should return true if the string is valid, and false if it's invalid.</span><span class="se">\n\n</span><span class="s2">This Kata is similar to the Valid Parentheses Kata, but introduces four new characters. Open and closed brackets, and open and closed curly braces. Thanks to @arnedag for the idea!</span><span class="se">\n\n</span><span class="s2">All input strings will be nonempty, and will only consist of open parentheses '(' , closed parentheses ')', open brackets '[', closed brackets ']', open curly braces '{' and closed curly braces '}'. </span><span class="se">\n\n</span><span class="s2">&lt;b&gt;What is considered Valid?&lt;/b&gt;</span><span class="se">\n</span><span class="s2">A string of braces is considered valid if all braces are matched with the correct brace. &lt;br/&gt;</span><span class="se">\n</span><span class="s2">For example:&lt;br/&gt;</span><span class="se">\n</span><span class="s2">'(){}[]' and '([{}])' would be considered valid, while '(}', '[(])', and '[({})](]' would be considered invalid.</span><span class="se">\n\n\n</span><span class="s2">&lt;b&gt;Examples:&lt;/b&gt; &lt;br/&gt;</span><span class="se">\n</span><span class="s2">`validBraces( </span><span class="se">\"</span><span class="s2">(){}[]</span><span class="se">\"</span><span class="s2"> )` =&gt; returns true &lt;br/&gt;</span><span class="se">\n</span><span class="s2">`validBraces( </span><span class="se">\"</span><span class="s2">(}</span><span class="se">\"</span><span class="s2"> )` =&gt; returns false &lt;br/&gt;</span><span class="se">\n</span><span class="s2">`validBraces( </span><span class="se">\"</span><span class="s2">[(])</span><span class="se">\"</span><span class="s2"> )` =&gt; returns false &lt;br/&gt;</span><span class="se">\n</span><span class="s2">`validBraces( </span><span class="se">\"</span><span class="s2">([{}])</span><span class="se">\"</span><span class="s2"> )` =&gt; returns true &lt;br/&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"totalAttempts"</span><span class="p">:</span><span class="w"> </span><span class="mi">4911</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"totalCompleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">919</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"totalStars"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"Algorithms"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Validation"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Logic"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Utilities"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>This endpoint returns information about a specific code challenge (kata).</p>
-
-<h3 id="http-request">HTTP REQUEST</h3>
-
-<p><code class="prettyprint">https://www.codewars.com/api/v1/code-challenges/:id_or_slug</code></p>
-
-          <h1 id="webhooks">Webhooks</h1>
-
+<h3 id='http-request-4'>HTTP REQUEST</h3>
+<p><code>https://www.codewars.com/api/v1/code-challenges/:id_or_slug</code></p>
+<h1 id='webhooks'>Webhooks</h1>
 <p>Webhooks allows you to receive notifications when events occur. </p>
 
-<p>The Codewars webhooks design is inspired by <a href="https://developer.github.com/webhooks/">GitHub&rsquo;s webhooks</a></p>
-
-<h2 id="structure">Structure</h2>
-
+<p>The Codewars webhooks design is inspired by <a href="https://developer.github.com/webhooks/">GitHub&#39;s webhooks</a></p>
+<h2 id='structure'>Structure</h2>
 <blockquote>
 <p>Sample Event (Code Challenge Created)</p>
 </blockquote>
-<pre><code class="highlight plaintext">User-Agent: Codewars Hookbot
+<div class="highlight"><pre class="highlight plaintext"><code>User-Agent: Codewars Hookbot
 Content-Type: application/json
 X-Webhook-Event: code_challenge
 X-Webhook-Secret: some-shared-secret
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"code_challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50654ddff44f800200000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"508f2708b3be0c0200000002"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code_challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50654ddff44f800200000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"508f2708b3be0c0200000002"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>When an event occurs in the Codewars system, any relevant webhooks will be triggered to the specified URL. Typically,
 events are categorized into <strong>event</strong> and <strong>actions</strong>. Typically an event references <em>what type of model</em> 
-(i.e. <code class="prettyprint">code_challenge</code>) and the action references what happened to it (i.e. <code class="prettyprint">created</code>).</p>
+(i.e. <code>code_challenge</code>) and the action references what happened to it (i.e. <code>created</code>).</p>
 
-<p><aside class="notice">
-Webhooks use the same terminology as the rest of the API. For example, <em>kata</em> are referenced as a <em>code_challenge</em>
-</aside></p>
+<aside class="notice">
+Webhooks use the same terminology as the rest of the API. For example, *kata* are referenced as a *code_challenge*
+</aside>
 
-<p>Webhooks typically contain a very small payload (often times, it only contains the <code class="prettyprint">id</code> of some object). You may need
+<p>Webhooks typically contain a very small payload (often times, it only contains the <code>id</code> of some object). You may need
 to query the rest of the API to get more information about a particular object.</p>
-
-<h2 id="register-your-webhook">Register your Webhook</h2>
-
+<h2 id='register-your-webhook'>Register your Webhook</h2>
 <blockquote>
 <p>Webhook Ping Event</p>
 </blockquote>
-<pre><code class="highlight plaintext">User-Agent: Codewars Hookbot
+<div class="highlight"><pre class="highlight plaintext"><code>User-Agent: Codewars Hookbot
 Content-Type: application/json
 X-Webhook-Event: webhook
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"updated"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"updated"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>Visit your <a href="https://www.codewars.com/users/edit">Codewars account page</a> and add a webhook. A webhook takes the
 following input:</p>
 
@@ -339,7 +626,7 @@ following input:</p>
 </thead><tbody>
 <tr>
 <td>Payload URL</td>
-<td>The server endpoint that will relieve the webhook payload (i.e. <code class="prettyprint">http://example.com/my/endpoint</code>)</td>
+<td>The server endpoint that will relieve the webhook payload (i.e. <code>http://example.com/my/endpoint</code>)</td>
 </tr>
 <tr>
 <td>Secret</td>
@@ -352,36 +639,31 @@ following input:</p>
 </tbody></table>
 
 <p>Once you create or update your webhook, your endpoint will receive a webhook updated event.</p>
-
-<h2 id="code-challenges-(kata)">Code Challenges (Kata)</h2>
-
+<h2 id='code-challenges-kata'>Code Challenges (Kata)</h2>
 <blockquote>
 <p>Sample Webhook Payload</p>
 </blockquote>
-<pre><code class="highlight plaintext">User-Agent: Codewars Hookbot
+<div class="highlight"><pre class="highlight plaintext"><code>User-Agent: Codewars Hookbot
 Content-Type: application/json
 X-Webhook-Event: code_challenge
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;action - i.e. 'created'&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"code_challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53af25145b97487568000001"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;action - i.e. 'created'&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code_challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53af25145b97487568000001"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <blockquote>
 <p>The solution_finalized also includes the following json:</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"solution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53417de006654f4171000587"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"solution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53417de006654f4171000587"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>We support the following actions:</p>
 
 <table><thead>
@@ -407,43 +689,38 @@ X-Webhook-Event: code_challenge
 <td>Someone submitted a solution to the code challenge</td>
 </tr>
 </tbody></table>
-
-<h2 id="user">User</h2>
-
+<h2 id='user'>User</h2>
 <blockquote>
 <p>Webhook Headers</p>
 </blockquote>
-<pre><code class="highlight plaintext">User-Agent: Codewars Hookbot
+<div class="highlight"><pre class="highlight plaintext"><code>User-Agent: Codewars Hookbot
 Content-Type: application/json
 X-Webhook-Event: user
-</code></pre>
-
+</code></pre></div>
 <blockquote>
 <p>User rank upgraded</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rank_upgraded"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-5</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rank_upgraded"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">-5</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <blockquote>
 <p>User Honor Upgraded</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"honor_changed"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"honor"</span><span class="p">:</span><span class="w"> </span><span class="mi">420</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"honor_delta"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"honor_changed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53aa3f265b97485984000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"honor"</span><span class="p">:</span><span class="w"> </span><span class="mi">420</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"honor_delta"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>We support the following actions:</p>
 
 <table><thead>
@@ -454,20 +731,16 @@ X-Webhook-Event: user
 </thead><tbody>
 <tr>
 <td>rank_upgraded</td>
-<td>The user&rsquo;s rank has been upgraded. Could be a global rank, or a language rank</td>
+<td>The user&#39;s rank has been upgraded. Could be a global rank, or a language rank</td>
 </tr>
 <tr>
 <td>honor_changed</td>
-<td>The user&rsquo;s honor has changed (usually in a positive direction)</td>
+<td>The user&#39;s honor has changed (usually in a positive direction)</td>
 </tr>
 </tbody></table>
-
-          <h1 id="languages">Languages</h1>
-
+<h1 id='languages'>Languages</h1>
 <p>For a complete list of languages supported by the API, please view the README of the <a href="https://github.com/Codewars/codewars-runner-cli/blob/master/README.md">CLI project</a>.</p>
-
-          <h1 id="errors">Errors</h1>
-
+<h1 id='errors'>Errors</h1>
 <p>Codewars uses conventional HTTP response codes to indicate success or failure of an API request.
 In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from
 the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the
@@ -481,49 +754,49 @@ the provided information (e.g. a required parameter was missing, a charge failed
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Something went wrong</td>
+<td>Bad Request -- Something went wrong</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Unauthorized -- Your API key is wrong</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; You do not have permission to access this resource</td>
+<td>Forbidden -- You do not have permission to access this resource</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified resource could not be found</td>
+<td>Not Found -- The specified resource could not be found</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a resource with an invalid method</td>
+<td>Method Not Allowed -- You tried to access a resource with an invalid method</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json</td>
 </tr>
 <tr>
 <td>422</td>
-<td>Unprocessable Entity &ndash; Your input failed validation.</td>
+<td>Unprocessable Entity -- Your input failed validation.</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re making too many API requests.</td>
+<td>Too Many Requests -- You&#39;re making too many API requests.</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
-          <div id="lang-selector">
+          <div class="lang-selector">
                 <a href="#" data-language-name="shell">curl</a>
           </div>
       </div>
