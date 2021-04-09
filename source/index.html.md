@@ -5,7 +5,7 @@ language_tabs:
   - shell: curl
 
 toc_footers:
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://www.codewars.com/'>Back to Codewars</a>
 
 includes:
   - authentication
@@ -17,7 +17,7 @@ includes:
 search: true
 ---
 
-# API Reference
+# Introduction
 
 The Codewars API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use
 HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs.
