@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      # Create the build directory before binding so that directory is not owned by root.
+      - run: mkdir -p build
       - run: ./build.sh
       - run: echo "dev.codewars.com" > ./build/CNAME
       - uses: peaceiris/actions-gh-pages@v3
